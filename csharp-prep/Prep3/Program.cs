@@ -9,22 +9,23 @@ class Program
 
         int userGuess = -1;
 
-        
-        Console.Write("What is your guess? ");
-        userGuess = int.Parse(Console.ReadLine());
+        while (userGuess != magicNumber)
+        {
+            Console.Write("What is your guess? ");
+            userGuess = int.Parse(Console.ReadLine());
 
-        if (magicNumber > userGuess)
-        {
-            Console.WriteLine("Higher");
+            if (magicNumber > userGuess)
+            {
+                Console.WriteLine("Higher");
+            }
+            else if (magicNumber < userGuess)
+            {
+                Console.WriteLine("Lower");
+            }
+            else
+            {
+                Console.WriteLine("Yay! You guessed it!");
+            }
         }
-        else if (magicNumber < userGuess)
-        {
-            Console.WriteLine("Lower");
-        }
-        else
-        {
-            Console.WriteLine("Yay! You guessed it!");
-        }
-        
     }
 }
