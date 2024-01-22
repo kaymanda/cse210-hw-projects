@@ -1,4 +1,4 @@
-
+using System;
 public class Entry
 {
     public string _date;
@@ -7,7 +7,7 @@ public class Entry
 
     public void Display()
     {
-        
+       
     }
 
 }
