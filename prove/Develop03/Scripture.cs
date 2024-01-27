@@ -20,25 +20,18 @@ public class Scripture
         }
     }
     //changed to use boolean and using do-while loop to run
-    public void HideRandomWords()//int numberToHide)
+    public void HideRandomWords(int numberToHide)
     {
-        bool tryOut;
-
-        do
-        {
 
         Random atRandom = new Random();
+       
+        for (int j = 0; j < numberToHide; j++)
+        {
         int num = atRandom.Next(0, _words.Count());
-        tryOut = _words[num].IsHidden();
-        _words[num].Hide();
-        //tried did like how it ran
-        //for (int j = 0; j < numberToHide; j++)
-        //{
-        //int num = atRandom.Next(0, _words.Count());
             
-        //_words[num].Hide();
+        _words[num].Hide();
         } 
-        while (tryOut == true);   
+           
     }
     public string GetDisplayText()
     {
@@ -66,11 +59,12 @@ public class Scripture
             }
         return hiddenFully;
     }
-
-    public Reference GetScripture() //added to help run the program smoothly for reference in program
+    
+    public Reference GetReference()
     {
         return _reference;
     }
 
+    
 
 }
