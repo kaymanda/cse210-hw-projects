@@ -19,7 +19,7 @@ public class Scripture
             _words.Add(wording);
         }
     }
-    //changed to use boolean and using do-while loop to run
+    
     public void HideRandomWords(int numberToHide)
     {
 
