@@ -1,5 +1,5 @@
 using System;
-
+//Reference desin class
 public class Reference
 {
     private string _book;
@@ -12,6 +12,7 @@ public class Reference
         _book = book;
         _chapter =chapter;
         _verse = verse;
+        _endVerse = 0;
 
 
     }
@@ -24,6 +25,15 @@ public class Reference
     }
     public string GetDisplayText()
     {
-        return "";
+        string text;
+        if(_endVerse == 0)
+        {
+            text = ($"{_book} {_chapter}:{_verse}");
+        }
+        else
+        {
+            text = ($"{_book} {_chapter}:{_verse}-{_endVerse}");
+        }
+        return text;
     }
 }
