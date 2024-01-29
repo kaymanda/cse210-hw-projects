@@ -1,49 +1,55 @@
 using System;
-using System.Collections.Specialized;
-using System.IO;
 
 public class Journal
 {
-    public List<Entry> _entries;
-        
-
+    public List<Entry> _entries = new List<Entry>();
         
 
     public void AddEntry(Entry newEntry)
     {
-        string fileName = "journal.txt";
-        string[] lines = System.IO.File.ReadAllLines(fileName);
-
-        foreach (string line in lines)
-        {
-            string[] part = line.Split(",");
-
-            string questionPrompt = part[0];
-        }
+        _entries.Add(newEntry);
     }
 
     public void DisplayAll()
     {
-
-    }
-
-    public void SaveToFile(string file)
-    {
-        string fileName = "journal.txt";
-        using (StreamWriter outputFile = new StreamWriter(fileName))
+        foreach (Entry prompt in _entries)
         {
-          outputFile.WriteLine("");  
+            prompt.Display();
         }
     }
 
-    public void LoadFromFile(string file)
+    public void SaveToFile(List<Entry> _entries)
     {
-        string fileName = "journal.txt";
+        Console.WriteLine("What is the name of the file? ");
+        string fileName = Console.ReadLine();
         using (StreamWriter outputFile = new StreamWriter(fileName))
         {
-          outputFile.WriteLine("");  
+          foreach (Entry promp in _entries)
+          {
+            outputFile.WriteLine($"{promp._date},{promp._promptText},{promp._entryText}");
+          }
         }
+    }
 
+    public List<Entry> LoadFromFile(string file)
+    {
+        string[] lines = File.ReadAllLines(file);
+        List<Entry> dataEntry = new List<Entry>();
+
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split(",");
+
+            Entry info = new Entry();
+
+            info._date = parts[0];
+            info._promptText = parts[1];
+            info._entryText = parts[2];
+
+            dataEntry.Add(info);
+        }
+        
+        return dataEntry;
     }
 
 }
