@@ -4,22 +4,23 @@ using System.Runtime.CompilerServices;
 public class SimpleGoal : Goal
 {
     private bool _isComplete;
-    public SimpleGoal(string name, string description, int points, bool isComplete)
+    public SimpleGoal(string name, string description, int points)
         : base(name,description,points)
     {
-
+        _isComplete = false;
     }
-    public  void RecordEvent()
+    public override void RecordEvent()
     {
-        
+        _isComplete = true;
     }
-    public  bool IsComplete()
+    public override bool IsComplete()
     {
-        return false;
+        return _isComplete;
     } 
-    public string GetStringRepresentation()
+    public override string GetStringRepresentation()
     {
-        return "";
+        string representation = _shortName + _description + _points + IsComplete();
+        return representation;
     }
 
 }

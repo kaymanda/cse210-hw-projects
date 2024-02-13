@@ -10,24 +10,37 @@ public class ChecklistGoal : Goal
     public ChecklistGoal(string name, string description, int points, int target, int bonus)
         : base(name,description, points)
     {
+        _amountCompleted = 0;
+        _target = target;
+        _bonus = bonus;
 
     }
-    public  void RecordEvent()
+    public override void RecordEvent()
     {
+        if (_amountCompleted < _target)
+        {
+            _amountCompleted++;
+        }
         
     }
-    public   bool IsComplete()
+    public override bool IsComplete()
     {
+        if (_amountCompleted == _target)
+        {
+            return true;
+        }
         return false;
     } 
 
-    public string GetDetailsString()
+    public override string GetDetailsString()
     {
-        return "";
+        string details = _shortName + "("+_description + ")" + _amountCompleted + _target;
+        return details;
     }
-    public  string GetStringRepresentation()
+    public override string GetStringRepresentation()
     {
-        return "";
+        string representation = _shortName + _description + _points + _bonus + _amountCompleted + _target; 
+        return representation;
     }
 
     

@@ -5,18 +5,21 @@ public class EternalGoal : Goal
     public EternalGoal(string name, string description, int points)
      : base(name,description,points)
      {
-
+        _shortName = name;
+        _description = description;
+        _points = points;
      } 
-     public  void RecordEvent()
+     public override void RecordEvent()
     {
-        
+        IsComplete();
     }
-    public  bool IsComplete()
+    public override bool IsComplete()
     {
         return false;
     } 
-    public  string GetStringRepresentation()
+    public override string GetStringRepresentation()
     {
-        return "";
+        string representation = _shortName + _description + _points; 
+        return representation;
     }
 }
