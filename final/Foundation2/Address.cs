@@ -1,17 +1,45 @@
 using System;
+using System.Data;
 
 public class Address
 {
-    public string _addressStreet;
-    public string _city;
-    public string _state;
+    private string _addressStreet;
+    private string _city;
+    private string _state;
+    private string _country;
 
-    public Address()
+    public Address(string address, string city, string state, string country)
     {
+        _addressStreet = address;
+        _city = city;
+        _state = state;
+        _country = country;
 
     }
     public string GetAddress()
     {
-        return "";
+        string address = $"{_addressStreet}, {_city}, {_state}, {_country}";  
+        return address;
     }
+    public bool CountryIs()
+    {
+        bool CountryIs = true;
+        if (_country == "USA")
+        {
+            CountryIs = false;
+            return CountryIs;
+        }
+        else
+        {
+            return CountryIs;
+        }
+    }
+   // public void SetAddress(string address, string city, string state, string country)
+   //{
+   //    _addressStreet = address;
+   //    _city = city;
+   //    _state = state;
+   //     _country = country;
+
+    //}
 }

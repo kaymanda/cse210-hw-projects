@@ -2,18 +2,33 @@ using System;
 
 public class Product
 {
-    public string _name;
-    public string _products;
-    public int _price;
-    public int _quantity;
+    private string _name;
+    private string _products;
+    private double _price;
+    private int _quantity;
 
-    public Product()
+    public Product(string name, string products, double price, int quantity)
     {
-
+        _name = name;
+        _products = products;
+        _price = price;
+        _quantity = quantity;
     }
-    public void GetProduct()
+    public string GetProductName()
     {
-        
+        return _name;
+    }
+    public string GetProductId()
+    {
+        return _products;
+    }
+    public int GetQuantity()
+    {
+        return _quantity;
+    }
+    public double PriceTotal()
+    {
+        return _price * _quantity;
     }
 
 }
