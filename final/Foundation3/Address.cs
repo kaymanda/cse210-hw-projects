@@ -6,12 +6,22 @@ public class Address
     private string _city;
     private string _state;
 
-    public Address()
+    public Address(string address, string city, string state)
     {
+        _addressStreet = address;
+        _city = city;
+        _state = state;
 
     }
     public string GetAddress()
     {
-        return "";
+        string addressStreet = ($"Address: {_addressStreet}, {_city}, {_state}");
+        return addressStreet;
     }
+    //public void SetAddress(string address, string city, string state)
+    //{
+    //    _addressStreet = address;
+    //    _city = city;
+    //    _state = state;
+    //}
 }

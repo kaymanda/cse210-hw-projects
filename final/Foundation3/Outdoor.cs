@@ -4,12 +4,21 @@ public class Outdoor : Event
 {
     private string _statement;
 
-    public Outdoor()
+    public Outdoor(string title, string description, string date, string time,string statement)
+        :base(title,description,date,time)
     {
-
+        _typeEvent = "Outdoor";
+        _statement = statement;
     }
-    public string GetStatement()
+    public void Display()
     {
-        return "";
+        Console.WriteLine($"Type of Event: {_typeEvent}");
+        Console.WriteLine($"Title: {_title}");
+        Console.WriteLine($"Description: {_description}");
+        Console.WriteLine($"Date: {_date}");
+        Console.WriteLine($"Time: {_time}");
+        Console.WriteLine($"Address: {_address.GetAddress()}");
+        Console.WriteLine($"Weather: {_statement}");
+        
     }
 }
